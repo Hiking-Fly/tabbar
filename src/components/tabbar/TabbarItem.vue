@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     ClickItem(){
-        this.$router.replace(this.path)
+        this.$router.push(this.path)
     }
   }
 }
