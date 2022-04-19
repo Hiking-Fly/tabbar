@@ -2,10 +2,31 @@ import Vue from "vue";
 import Vuex from "vuex";
 import Promise from "core-js/fn/promise";
 import { INCREASE } from '@/store/mutations-types.js'
-import { reject, resolve } from "promise";
+import { reject, resolve } from "promise"
 
 Vue.use(Vuex)
-
+const moduleA= {
+    state:{
+        name:"LiSi"
+    },
+    mutations:{
+        updateName(state,payload){
+            state.name = payload
+        }
+    },
+    actions:{},
+    getters:{
+        fullname(state){
+            return state.name+"fullname"
+        },
+        fullname2(state,getters){
+            return getters.fullname+"fullname2"
+        },
+        fullname3(state,getters,rootState){
+            return getters.fullname2 + rootState.counter
+        }
+    }
+}
 const store = new Vuex.Store({
     state:{
         counter:100,
@@ -47,7 +68,7 @@ const store = new Vuex.Store({
         }
     },
     modules:{
-
+        a:moduleA
     }
 })
 

@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <router-view/>
+    <h2>{{$store.state.a.name}}</h2>
+    <h2>{{$store.getters.fullname}} {{$store.getters.fullname2}} {{$store.getters.fullname3}}</h2>
     <h3>hello-vuex的counter</h3>
     <hello-vuex/>
     <button @click="add">+</button>
