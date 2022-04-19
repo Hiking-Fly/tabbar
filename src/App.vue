@@ -6,6 +6,7 @@
     <button @click="add">+</button>
     <button @click="sub">-</button>
     <button @click="add5(5)">+5</button>
+    <button @click="update">异步+10</button>
     <h3>直接获取store.state的counter</h3>
     {{$store.state.counter}}
     <main-tab-bar></main-tab-bar>
@@ -36,6 +37,12 @@ export default{
       //   type:"increase5",
       //   count,
       // }) //另一种提交方式，提交过去的参数会是对象
+    },
+    update(){
+      this.$store.dispatch('aUpdateInfo',"携带的信息").then(res => {
+        console.log("里面提交了")
+        console.log(res)
+      })
     }
   }
 }
